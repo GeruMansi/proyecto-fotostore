@@ -1,11 +1,12 @@
 import React from "react";
+import ItemCount from "./ItemCount";
+import ItemDetailContainer from "./ItemDetailContainer";
 
-export default function Item({item}) {
+export default function Item() {
     return (
         <>
-        <h3>{item.id}. {item.title}</h3>
-        <p>{item.price}</p>
-        <img src={item.picUrl} width={'150'}/>
+        <ItemDetailContainer />
+        <ItemCount stock={7} initial={1}/>
         </>
     )
 }
