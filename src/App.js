@@ -1,13 +1,34 @@
 import './App.css';
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Categories from './components/Categories';
+import Footer from './components/Footer';
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <NavBar />
-      <ItemListContainer greeting={'Bienvenido/a a FotoStore'}/>
-    </>
+      <Switch>
+        <Route exact path={'/'}>
+          <ItemListContainer greeting={'Bienvenido/a a FotoStore'}/>
+        </Route>
+
+        <Route exact path={'/category/'}>
+          <Categories />
+        </Route>
+
+        <Route path={'/category/:catId'}>
+          <ItemListContainer greeting={'Bienvenido/a a FotoStore'}/>
+        </Route>
+
+        <Route path={'/item/:itemId'}>
+          <ItemDetailContainer />
+        </Route>
+      </Switch>
+      <Footer />
+    </BrowserRouter>
   );
 }
 

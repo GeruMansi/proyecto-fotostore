@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 
-const producto = 'Filtro UV Marumi 52mm'
-export default function ItemCount({stock, initial}) {
-    const [counter, setCounter] = useState(stock > 0 ? initial : 0)    
+export default function ItemCount({stock, initial, producto}) {
+    const [counter, setCounter] = useState(stock > 0 ? initial : 0)
 
     const aumentarUno = ()=> {
         if (counter < stock) {

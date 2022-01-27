@@ -2,7 +2,7 @@ import React from "react";
 
 function CartWidget() {
     return (
-        <i class="fas fa-shopping-cart"></i>
+        <i className="fas fa-shopping-cart"></i>
     )
 }
 

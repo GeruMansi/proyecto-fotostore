@@ -1,12 +1,16 @@
 import React from "react";
-import ItemCount from "./ItemCount";
-import ItemDetailContainer from "./ItemDetailContainer";
+import { Link } from "react-router-dom";
 
-export default function Item() {
+export default function Item({ item }) {
     return (
         <>
-        <ItemDetailContainer />
-        <ItemCount stock={7} initial={1}/>
+            <Link to={`/item/${item.id}`}>
+                <div className="itemContainer">
+                    <img src={item.picUrl} width={'150'} />
+                    <h5>{item.title}</h5>
+                    <p>{item.price}</p>
+                </div>
+            </Link>
         </>
     )
 }
