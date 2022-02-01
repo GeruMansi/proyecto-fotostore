@@ -6,9 +6,9 @@ export default function Categories() {
         <>
         <h3>Elegí una categoría</h3>
         <ul>
-            <li><Link to={'/category/accesorios'}>Accesorios</Link></li>
-            <li><Link to={'/category/iluminacion'}>Iluminación</Link></li>
-            <li><Link to={'/category/tripodes-pies'}>Trípodes / Pies</Link></li>
+            <li><Link to={'/category/accesorios'}><strong>Accesorios</strong></Link></li>
+            <li><Link to={'/category/iluminacion'}><strong>Iluminación</strong></Link></li>
+            <li><Link to={'/category/tripodes-pies'}><strong>Trípodes / Pies</strong></Link></li>
         </ul>
         </>
     )

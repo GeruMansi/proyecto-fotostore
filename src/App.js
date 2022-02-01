@@ -26,6 +26,10 @@ function App() {
         <Route path={'/item/:itemId'}>
           <ItemDetailContainer />
         </Route>
+
+        <Route exact path={'/cart'}>
+          <h3>Esta es la página del carrito</h3>
+        </Route>
       </Switch>
       <Footer />
     </BrowserRouter>
