@@ -34,6 +34,17 @@ nav ul li a:hover {
   color: #0b406b;
 }
 
+.cartBadge {
+  background-color: white;
+  border-radius: 50%;
+  color: steelblue;
+  text-align: center;
+  display: inline-block;
+  padding: 0 5px;
+  height: 20px;
+  margin-left: 10px;
+}
+
 a {
   text-decoration: none;
 }
@@ -87,4 +98,57 @@ footer {
 
 .goToCart:hover {
   color: #0b406b;
+}
+
+.cartContainer {
+  width: 70%;
+  margin: auto;
+}
+
+.cartContainer ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cartContainer ul li {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.removeItemBtn {
+  background-color: tomato;
+  color: white;
+  font-weight: 700;
+  text-align: center;
+  margin-right: 5px;
+  cursor: pointer;
+  border: 0 solid transparent;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+.cartFooter {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+
+.roundBtn {
+  border-radius: 10px;
+  padding: 10px 50px;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.clearCartBtn {
+  background-color: tomato;
+}
+
+.checkoutBtn {
+  background-color: steelblue;
 }
