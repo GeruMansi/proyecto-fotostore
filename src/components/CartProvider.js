@@ -11,7 +11,7 @@ export default function CartContext({ children }) {
             const indexItem = cart.findIndex(elem => elem.id === item.id)
             cart[indexItem].count = cart[indexItem].count + count
         } else {
-            setCart([...cart, {id: item.id, title: item.title, price: item.price, count: count}])
+            setCart([...cart, {id: item.id, title: item.title, price: item.price, picUrl: item.picUrl, count: count}])
         }
     }
 

@@ -69,7 +69,7 @@ function ItemListContainer({ greeting }) {
     return (
         <>
             <h1>{greeting}</h1>
-            <ItemList products={catId? products.filter(Item => Item.category == catId) : products} />
+            <ItemList products={catId? products.filter(Item => Item.category === catId) : products} />
         </>
     )
 }

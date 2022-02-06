@@ -31,7 +31,6 @@ function App() {
           </Route>
 
           <Route exact path={'/cart'}>
-            <h3>Esta es la página del carrito</h3>
             <Cart />
           </Route>
         </Switch>
