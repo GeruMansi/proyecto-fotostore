@@ -21,7 +21,7 @@ export default function ItemDetail({ item }) {
 
     return (
         <div className="itemDetail">
-            <h3>{item.id}. {item.title}</h3>
+            <h3>{item.title}</h3>
             <img src={item.picUrl} width={'300'} alt={item.title}/>
             <h2>$ {item.price}</h2>
             <br />

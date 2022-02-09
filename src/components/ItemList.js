@@ -9,7 +9,7 @@ export default function ItemList({products}) {
             
         {
             products.length > 0 ?
-                products.map(item => <Item item={item}/>)
+                products.map(item => <Item item={item} key={item.id}/>)
             :
             <h3>Cargando...</h3>
         }

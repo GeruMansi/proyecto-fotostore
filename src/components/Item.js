@@ -8,7 +8,7 @@ export default function Item({ item }) {
                 <div>
                     <img src={item.picUrl} width={'150'} alt={item.title}/>
                     <h5>{item.title}</h5>
-                    <p>{item.price}</p>
+                    <p>$ {item.price}</p>
                 </div>
             </Link>
         </div>
