@@ -10,10 +10,7 @@ export default function ItemDetail({ item }) {
     const {addItem} = useContext(cartContext)
 
     function onAdd(quantityToAdd) {
-        if (item.stock === 0) {
-            alert('En este momento no hay stock de este producto')
-        } else {
-            alert(`Agregaste ${item.title} x${quantityToAdd} al carrito`)
+        if (item.stock !== 0) {
             setenableGoToCart(true)
             addItem(item, quantityToAdd)
         }
@@ -21,12 +18,14 @@ export default function ItemDetail({ item }) {
 
     return (
         <div className="itemDetail">
-            <h3>{item.title}</h3>
-            <img src={item.picUrl} width={'300'} alt={item.title}/>
-            <h2>$ {item.price}</h2>
-            <br />
-            <h4>Descripción del producto</h4>
-            <p>{item.description}</p>
+            <div>
+                <h3>{item.title}</h3>
+                <img src={item.picUrl} width={'300'} alt={item.title}/>
+                <h2>$ {item.price}</h2>
+                <br />
+                <h4>Descripción del producto</h4>
+                <p>{item.description}</p>
+            </div>
             <div>
                 {
                     (!enableGoToCart)?

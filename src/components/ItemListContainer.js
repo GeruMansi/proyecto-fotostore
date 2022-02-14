@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import ItemList from "./ItemList";
 import { getFirestore } from "../firebase/firebase";
+import Categories from "./Categories";
 
 function ItemListContainer() {
 
@@ -21,7 +22,6 @@ function ItemListContainer() {
                     console.log('No hay coincidencias')
                     return
                 }
-                console.log('Documentos encontrados')
 
                 setProducts(querySnapshot.docs.map((doc) => ({id: doc.id, ...doc.data()})))
             })
@@ -31,6 +31,7 @@ function ItemListContainer() {
 
     return (
         <>
+            <Categories />
             <ItemList products={products} />
         </>
     )

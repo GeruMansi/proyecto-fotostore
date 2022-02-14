@@ -7,6 +7,7 @@ import Categories from './components/Categories';
 import Footer from './components/Footer';
 import CartProvider from './components/CartProvider';
 import Cart from './components/Cart';
+import Checkout from './components/Checkout';
 
 function App() {
   return (
@@ -32,6 +33,10 @@ function App() {
 
           <Route exact path={'/cart'}>
             <Cart />
+          </Route>
+
+          <Route exact path={'/checkout'}>
+            <Checkout />
           </Route>
         </Switch>
         <Footer />

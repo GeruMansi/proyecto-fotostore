@@ -1,3 +1,10 @@
+:root {
+  --main-bg-color: #000;
+  --main-bg-color-t: #0008;
+  --secondary-bg-color: #111100;
+  --main-color: #fa0;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -9,18 +16,18 @@ a {
 }
 
 .primaryBtn {
-  background-color: steelblue;
-  color: #fff;
+  background-color: var(--main-color);
+  color: #000;
   font-weight: 700;
   padding: .5em 1.2em;
 
   border-color: transparent;
   border-radius: 5px;
-  cursor: pointer;
+  cursor: pointer;;
 }
 
 .primaryBtn:hover {
-  background-color: #0b406b;
+  text-decoration: underline;
 }
 
 .primaryBtn a {
@@ -51,8 +58,24 @@ a {
   color: #fff;
 }
 
+.outlineBtn {
+  background-color: transparent;
+  color: var(--main-color);
+  font-weight: 700;
+  padding: .5em 1.2em;
+  border: 2px solid var(--main-color);
+  border-radius: 5px;
+  transition: all .3s;
+  cursor: pointer;
+}
+
+.outlineBtn:hover {
+  background-color: var(--main-color);
+  color: #000;
+}
+
 .warningBtn {
-  background-color: #fff;
+  background-color: transparent;
   color: tomato;
   font-weight: 700;
 
@@ -67,6 +90,15 @@ a {
   color: #fff;
 }
 
+.error {
+  color: #f00;
+  font-size: small;
+}
+
+body {
+  background-color: var(--secondary-bg-color);
+}
+
 /* ===== NAVBAR ====== */
 
 .title {
@@ -76,12 +108,15 @@ a {
 }
 
 nav {
-  background-color: steelblue;
-  height: 60px;
+  background-color: var(--main-bg-color);
+  height: 80px;
   color: #fff;
   padding: 0 30px;
   font-size: 1.2em;
   font-weight: 700;
+
+  border-bottom: 5px solid var(--main-color);
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -103,18 +138,36 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  color: #0b406b;
+  color: var(--main-color);
 }
 
 .cartBadge {
-  background-color: white;
+  background-color: var(--main-color);
   border-radius: 50%;
-  color: steelblue;
+  color: #fff;
   text-align: center;
   display: inline-block;
   padding: 0 5px;
   height: 20px;
   margin-left: 10px;
+}
+
+.categories {
+  color: #fff;
+  padding: 10px;
+
+  display: flex;
+  list-style: none;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.categoryName {
+  color: var(--main-color);
+}
+
+.categoryName:hover {
+  color: #fff;
 }
 
 /* ===== ITEM LIST ====== */
@@ -132,6 +185,8 @@ nav ul li a:hover {
   width: 200px;
   padding: 20px;
   border-radius: 10px;
+  background-color: #fff;
+
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -139,7 +194,7 @@ nav ul li a:hover {
 }
 
 .itemContainer:hover {
-  box-shadow: 5px 5px 10px hsla(207, 44%, 49%, 0.5);
+  box-shadow: 5px 5px 10px var(--main-bg-color);
   transform: translateY(-5px);
 }
 
@@ -151,7 +206,7 @@ nav ul li a:hover {
 }
 
 .itemContainer a {
-  color: #0b406b;
+  color: #000;
 }
 
 /* ===== ITEM DETAIL ====== */
@@ -161,17 +216,23 @@ nav ul li a:hover {
 }
 
 .itemDetail {
+  background-color: #fff;
   font-size: 1em;
   margin: 25px 0;
+  padding: 30px;
+
+  border-radius: 10px;
 
   display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1em;
 }
 
 /* ====== CART ====== */
 
 .cartContainer {
-  background-color: hsla(207, 44%, 49%, 0.5);
+  background-color: var(--main-bg-color);
+  color: #fff;
   margin: 30px auto;
   padding: 50px;
   width: 80%;
@@ -194,6 +255,7 @@ nav ul li a:hover {
 
 .cartItem {
   background-color: white;
+  color: #111100;
   width: 100%;
   height: 70px;
   margin: 0;
@@ -211,7 +273,7 @@ nav ul li a:hover {
 }
 
 .cartInnerDivider h3 a {
-  color: #0b406b;
+  color: #111100;
 }
 
 .removeItemBtn {
@@ -230,8 +292,10 @@ nav ul li a:hover {
 }
 
 .cartFooter {
+  color: #111100;
+
   display: grid;
-  grid-template-columns: .25fr 1fr 1fr;
+  grid-template-columns: .25fr repeat(2, minmax(100px, 1fr));
   grid-template-rows: 1fr .5fr;
   gap: 20px;
 }
@@ -247,12 +311,55 @@ nav ul li a:hover {
   grid-column: span 3;
 }
 
-.clearCartBtn {
-  background-color: tomato;
+.checkoutBtn {
+  width: 100%;
 }
 
-.checkoutBtn {
-  background-color: forestgreen;
+/* ====== CHECKOUT ====== */
+.checkoutFormContainer {
+  background-color: var(--main-bg-color);
+  width: 80%;
+  padding: 50px;
+  margin: auto;
+  margin-top: 30px;
+
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.checkoutForm {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputContainer {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 15px;
+  gap: 5px;
+}
+
+.inputContainer label {
+  color: var(--main-color);
+  font-weight: 500;
+}
+
+.inputContainer input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--main-color);
+}
+
+.finish {
+  margin-top: 30px;
+  align-self: center;
 }
 
 footer {

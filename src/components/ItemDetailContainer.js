@@ -22,7 +22,6 @@ export default function ItemDetailContainer() {
                     console.log('No existe el documento')
                     return
                 }
-                console.log('Documento encontrado')
                 setItem({id: doc.id, ...doc.data()})
             })
             .catch((err) => {
@@ -32,9 +31,11 @@ export default function ItemDetailContainer() {
     }, [itemId])
 
     return (
-        <div className="itemDetailContainer">
+        <>
             <Categories />
-            <ItemDetail item={item}/>
-        </div>
+            <div className="itemDetailContainer">
+                <ItemDetail item={item}/>
+            </div>
+        </>
     )
 }

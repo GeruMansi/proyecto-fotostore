@@ -4,9 +4,7 @@ import { cartContext } from "./CartProvider";
 
 export default function Cart() {
 
-    const { cart, removeItem, clearCart } = useContext(cartContext)
-
-    const cartTotal = cart.reduce((a, b) => a + (b.price * b.count), 0)
+    const { cart, removeItem, clearCart, cartTotal } = useContext(cartContext)
 
     return (
         <div className="cartContainer">
@@ -14,7 +12,7 @@ export default function Cart() {
                 cart.length === 0 ?
                     <>
                         <h3>Tu carrito está vacío... por ahora.</h3>
-                        <Link to={'/'} className="primaryBtn">Explorar productos</Link>
+                        <Link to={'/'} className="outlineBtn">Explorar productos</Link>
                     </>
                     :
                     <>
@@ -38,8 +36,8 @@ export default function Cart() {
                                 <h3>{`$${cartTotal.toFixed(2)}`}</h3>
                             </div>
                             <button className="warningBtn" title="Vaciar carrito" onClick={() => clearCart()}><i className="fas fa-trash"></i></button>
-                            <Link to={'/'}><button className="secondaryBtn">Seguir comprando</button></Link>
-                            <Link to={'/checkout'}><button className="primaryBtn">Finalizar compra</button></Link>
+                            <Link to={'/'}><button className="outlineBtn">Seguir comprando</button></Link>
+                            <Link to={'/checkout'}><button className="primaryBtn checkoutBtn">Comprar</button></Link>
                         </div>
                     </>
             }
