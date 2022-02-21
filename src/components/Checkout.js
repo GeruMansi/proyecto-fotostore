@@ -85,8 +85,25 @@ export default function Checkout() {
                         clearCart()
                     }}
             >
-                {({ errors, touched }) => (
+                {({ errors }) => (
                     <div className="checkoutFormContainer">
+                        <form className="paymentForm">
+                            <h3>Método de pago:</h3>
+                            <div>                            
+                                <input type={'radio'} id={'option1'} name={'option'}/>
+                                <label htmlFor="'option1"><i className="fa-solid fa-credit-card"></i> Tarjeta de crédito/débito</label>
+                            </div>
+
+                            <div>                            
+                                <input type={'radio'} id={'option2'} name={'option'}/>
+                                <label htmlFor="'option2"><i className="fa-solid fa-building-columns"></i> Transferencia bancaria/MercadoPago</label>
+                            </div>
+
+                            <div>                            
+                                <input type={'radio'} id={'option3'} name={'option'}/>
+                                <label htmlFor="'option3"><i className="fa-solid fa-money-bill-1-wave"></i> Efectivo</label>
+                            </div>
+                        </form>
                         <Form className="checkoutForm">
                             <div className="inputContainer">
                                 <label htmlFor="inputName">Nombre</label>

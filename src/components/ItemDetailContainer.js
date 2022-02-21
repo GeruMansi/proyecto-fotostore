@@ -33,7 +33,7 @@ export default function ItemDetailContainer() {
     return (
         <>
             <Categories />
-            <div className="itemDetailContainer">
+            <div>
                 <ItemDetail item={item}/>
             </div>
         </>

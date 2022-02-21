@@ -17,16 +17,29 @@ export default function ItemDetail({ item }) {
     }
 
     return (
-        <div className="itemDetail">
-            <div>
+        <div className="itemDetailContainer">
+            <div className="itemDetail">
                 <h3>{item.title}</h3>
-                <img src={item.picUrl} width={'300'} alt={item.title}/>
-                <h2>$ {item.price}</h2>
-                <br />
-                <h4>Descripción del producto</h4>
-                <p>{item.description}</p>
+                <div>
+                    {
+                        item.picUrl?
+                            <img src={item.picUrl} alt={item.title}/>
+                        :
+                            <div className="loaderContainer">
+                                <div className="loader">
+                                    <i className="fa-solid fa-spinner"></i>
+                                </div>
+                            </div>
+                    }
+                </div>
             </div>
-            <div>
+            <div className="itemInfo">
+                <div className="subItemInfo">
+                    <h4>Descripción del producto</h4>
+                    <p>{item.description}</p>
+                    <br />
+                    <h2>$ {item.price}</h2>
+                </div>
                 {
                     (!enableGoToCart)?
                         <ItemCount item={item} onAdd={onAdd} />

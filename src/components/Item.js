@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 
 export default function Item({ item }) {
     return (
-        <div className="itemContainer">
-            <Link to={`/item/${item.id}`}>
+        <Link to={`/item/${item.id}`}>
+            <div className="itemContainer">
                 <div>
-                    <img src={item.picUrl} width={'150'} alt={item.title}/>
-                    <h5>{item.title}</h5>
-                    <p>$ {item.price}</p>
+                    <img width={'150'} src={item.picUrl} alt={item.title}/>
                 </div>
-            </Link>
-        </div>
+                <h5>{item.title}</h5>
+                <p>$ {item.price}</p>
+            </div>
+        </Link>
     )
 }

@@ -11,7 +11,7 @@ export default function Cart() {
             {
                 cart.length === 0 ?
                     <>
-                        <h3>Tu carrito está vacío... por ahora.</h3>
+                        <h3 style={{textAlign: 'center'}}>Tu carrito está vacío... por ahora.</h3>
                         <Link to={'/'} className="outlineBtn">Explorar productos</Link>
                     </>
                     :
