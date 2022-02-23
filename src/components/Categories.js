@@ -1,16 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Categories() {
     return (
         <div>
             <ul className="categories">
-                <li><Link to={'/category/accesorios'}><strong className="categoryName">Accesorios</strong></Link></li>
-                <li><Link to={'/category/iluminacion'}><strong className="categoryName">Iluminación</strong></Link></li>
-                <li><Link to={'/category/tripodes-pies'}><strong className="categoryName">Trípodes / Pies</strong></Link></li>
-                <li><Link to={'/category/camaras'}><strong className="categoryName">Cámaras</strong></Link></li>
-                <li><Link to={'/category/lentes'}><strong className="categoryName">Lentes</strong></Link></li>
-                <li><Link to={'/category/otros'}><strong className="categoryName">Otros</strong></Link></li>
+                <NavLink exact to={'/category/accesorios'} activeClassName="currentCategory"><li><strong className="categoryName">Accesorios</strong></li></NavLink>
+                <NavLink exact to={'/category/iluminacion'} activeClassName="currentCategory"><li><strong className="categoryName">Iluminación</strong></li></NavLink>
+                <NavLink exact to={'/category/tripodes-pies'} activeClassName="currentCategory"><li><strong className="categoryName">Trípodes / Pies</strong></li></NavLink>
+                <NavLink exact to={'/category/camaras'} activeClassName="currentCategory"><li><strong className="categoryName">Cámaras</strong></li></NavLink>
+                <NavLink exact to={'/category/lentes'} activeClassName="currentCategory"><li><strong className="categoryName">Lentes</strong></li></NavLink>
+                <NavLink exact to={'/category/otros'} activeClassName="currentCategory"><li><strong className="categoryName">Otros</strong></li></NavLink>
             </ul>
         </div>
     )

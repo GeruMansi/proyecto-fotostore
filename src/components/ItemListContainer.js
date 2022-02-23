@@ -31,7 +31,12 @@ function ItemListContainer() {
 
     return (
         <>
-            <Categories />
+            <div className="mobileCategories">
+                {catId && <Categories />}
+            </div>
+            <div className="desktopCategories">
+                <Categories />
+            </div>
             <ItemList products={products} />
         </>
     )

@@ -3,6 +3,7 @@ import firebase from "firebase";
 import { getFirestore } from "../firebase/firebase";
 import { cartContext } from "./CartProvider";
 import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Link } from "react-router-dom";
 
 export default function Checkout() {
 
@@ -66,6 +67,7 @@ export default function Checkout() {
                                 lastName: values.lastName,
                                 email: values.email,
                                 adress: values.adress,
+                                paymentMethod: values.payment
                             },
                             items: cart,
                             total: cartTotal,
@@ -87,23 +89,6 @@ export default function Checkout() {
             >
                 {({ errors }) => (
                     <div className="checkoutFormContainer">
-                        <form className="paymentForm">
-                            <h3>Método de pago:</h3>
-                            <div>                            
-                                <input type={'radio'} id={'option1'} name={'option'}/>
-                                <label htmlFor="'option1"><i className="fa-solid fa-credit-card"></i> Tarjeta de crédito/débito</label>
-                            </div>
-
-                            <div>                            
-                                <input type={'radio'} id={'option2'} name={'option'}/>
-                                <label htmlFor="'option2"><i className="fa-solid fa-building-columns"></i> Transferencia bancaria/MercadoPago</label>
-                            </div>
-
-                            <div>                            
-                                <input type={'radio'} id={'option3'} name={'option'}/>
-                                <label htmlFor="'option3"><i className="fa-solid fa-money-bill-1-wave"></i> Efectivo</label>
-                            </div>
-                        </form>
                         <Form className="checkoutForm">
                             <div className="inputContainer">
                                 <label htmlFor="inputName">Nombre</label>
@@ -125,6 +110,18 @@ export default function Checkout() {
                                 <Field id="inputAdress" type="text" name="adress"/>
                                 <ErrorMessage name="adress" component={() => (<div className="error">{errors.adress}</div>)}/>
                             </div>
+                            <div className="paymentForm">
+                                <h3>Método de pago:</h3>
+                                <label>
+                                    <Field type="radio" name="payment" value="crédito/débito"/><i className="fa-solid fa-credit-card"></i> Tarjeta de crédito/débito
+                                </label>
+                                <label>
+                                    <Field type="radio" name="payment" value="transferencia"/><i className="fa-solid fa-building-columns"></i> Transferencia bancaria/MercadoPago
+                                </label>
+                                <label>
+                                    <Field type="radio" name="payment" value="efectivo"/><i className="fa-solid fa-money-bill-1-wave"></i> Efectivo
+                                </label>
+                            </div>
                             <button type="submit" className="primaryBtn finish">Finalizar</button>
                         </Form>
                     </div>
@@ -133,12 +130,18 @@ export default function Checkout() {
             :
             <div style={{color: '#fff'}}>
                 {orderId?
-                    <div className="checkoutFormContainer">
-                        <h1>¡Felicitaciones! Tu compra fue realizada con éxito.</h1>
-                        <h3>Tu orden de compra fue ingresada con el id: {orderId}</h3>
+                    <div className="checkoutFormContainer" style={{textAlign: 'center'}}>
+                        <h1 style={{marginBottom: '30px'}}>¡Felicitaciones! Tu compra fue realizada con éxito.</h1>
+                        <h3 style={{marginBottom: '15px'}}>Tu orden de compra fue ingresada con el id: {orderId}</h3>
+                        <Link to={'/'} className="outlineBtn">Volver</Link>
                     </div>
                 :
-                    <h3>Cargando...</h3>}
+                    <div className="loaderContainer">
+                        <div className="loader">
+                            <i className="fa-solid fa-spinner"></i>
+                        </div>                        
+                        <h3 style={{color: '#fff'}}>Cargando...</h3>
+                    </div>}
             </div>
             }
         </>

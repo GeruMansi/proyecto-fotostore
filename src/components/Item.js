@@ -10,6 +10,7 @@ export default function Item({ item }) {
                 </div>
                 <h5>{item.title}</h5>
                 <p>$ {item.price}</p>
+                {(!item.stock) && <span className="noStockOverlay">Sin Stock</span>}
             </div>
         </Link>
     )

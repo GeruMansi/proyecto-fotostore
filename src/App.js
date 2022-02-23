@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import CartProvider from './components/CartProvider';
 import Cart from './components/Cart';
 import Checkout from './components/Checkout';
+import User from './components/User';
 
 function App() {
   return (
@@ -16,7 +17,7 @@ function App() {
         <NavBar />
         <Switch>
           <Route exact path={'/'}>
-            <ItemListContainer greeting={'Bienvenido/a a FotoStore'}/>
+            <ItemListContainer />
           </Route>
 
           <Route exact path={'/category/'}>
@@ -24,11 +25,15 @@ function App() {
           </Route>
 
           <Route path={'/category/:catId'}>
-            <ItemListContainer greeting={'Bienvenido/a a FotoStore'}/>
+            <ItemListContainer />
           </Route>
 
           <Route path={'/item/:itemId'}>
             <ItemDetailContainer />
+          </Route>
+
+          <Route exact path={'/user'}>
+            <User />
           </Route>
 
           <Route exact path={'/cart'}>

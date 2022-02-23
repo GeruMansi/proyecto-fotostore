@@ -17,7 +17,7 @@ export default function ItemCount({ item, onAdd }) {
 
     return (
         <div className="itemCounter">
-            <h3>{item.title} <i>(stock: {item.stock})</i></h3>
+            <h3>{item.title} <i style={{color: (item.stock? 'inherit' : 'tomato')}}>(stock: {item.stock})</i></h3>
             <div className="itemCounterDivider">                
                 <button onClick={() => reducirUno()} className="outlineBtn counterBtn"> - </button>
                 <h3>{counter}</h3>

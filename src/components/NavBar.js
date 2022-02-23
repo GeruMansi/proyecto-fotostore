@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
 export default function NavBar() {
@@ -11,10 +11,10 @@ export default function NavBar() {
             <nav className="navDesktop">
                 <h1><Link className="title" to={'/'}>FotoStore</Link></h1>
                 <ul>
-                    <li><Link to={'/'}>Inicio</Link></li>
-                    <li><Link to={'/category/'}>Categorías</Link></li>
-                    <li><Link to={'/user'}>Perfil</Link></li>
-                    <li><Link to={'/cart'}><CartWidget /></Link></li>
+                    <li><NavLink exact to={'/'} activeClassName="currentRoute"><i className="fa-solid fa-house"></i> Inicio</NavLink></li>
+                    <li><NavLink to={'/category/'} activeClassName="currentRoute"><i className="fa-solid fa-list"></i> Categorías</NavLink></li>
+                    <li><NavLink to={'/user'} activeClassName="currentRoute"><i className="fa-solid fa-user"></i> Perfil</NavLink></li>
+                    <li><NavLink to={'/cart'} activeClassName="currentRoute"><CartWidget /> Carrito</NavLink></li>
                 </ul>
             </nav>
             <nav className="navMobile">
