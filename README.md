@@ -15,4 +15,4 @@ Y, luego, ejecutar
 
 ## Un pequeño vistazo
 
-Video mostrando navegación: https://www.loom.com/share/d8786731e5bf4fd689e12c522b9e3f26
+https://www.loom.com/share/37e8bb34185a4bd1b7af784c4f68f6ce

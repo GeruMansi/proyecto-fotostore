@@ -189,6 +189,7 @@ nav ul li a:hover {
 
   position: absolute;
   top: 75px;
+  z-index: 100;
   transition: all .5s ease-out;
 }
 
@@ -277,11 +278,8 @@ nav ul li a:hover {
   position: relative;
 
   display: grid;
-  grid-template-columns: 50% 1fr;
+  grid-template-columns: 40% 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
-    'pic title'
-    'pic price';
 }
 
 .itemContainer:hover {
@@ -289,9 +287,10 @@ nav ul li a:hover {
   transform: translateY(-5px);
 }
 
-.itemContainer:first-child {
-  grid-area: pic;
-  justify-self: center;
+.itemContainer > div {
+  max-width: 40%;
+  grid-column: 1 / 2;
+  grid-row: 1 / span 2;
 }
 
 .itemContainer img {
@@ -300,6 +299,17 @@ nav ul li a:hover {
   object-fit: contain;
   overflow: hidden;
   border-radius: 10px;
+}
+
+.itemContainer > h5 {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  align-self: center;
+}
+
+.itemContainer > p {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
 }
 
 .noStockOverlay {
@@ -806,6 +816,9 @@ footer {
   }
 
   .inputContainer {
+    width: 40%;
+  }
+  .paymentForm {
     width: 40%;
   }
 

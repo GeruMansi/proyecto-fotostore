@@ -8,7 +8,9 @@ export default function NavBar() {
 
     return (
         <>
+            {/* ===== NavBar para mostrar en tamaño desktop/tablet ===== */}
             <nav className="navDesktop">
+                
                 <h1><Link className="title" to={'/'}>FotoStore</Link></h1>
                 <ul>
                     <li><NavLink exact to={'/'} activeClassName="currentRoute"><i className="fa-solid fa-house"></i> Inicio</NavLink></li>
@@ -17,6 +19,8 @@ export default function NavBar() {
                     <li><NavLink to={'/cart'} activeClassName="currentRoute"><CartWidget /> Carrito</NavLink></li>
                 </ul>
             </nav>
+
+            {/* ===== NavBar para mostrar en tamaño mobile ===== */}
             <nav className="navMobile">
                 <button className="outlineBtn" onClick={() => {
                     setShowLinks(!showLinks)
