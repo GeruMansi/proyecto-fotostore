@@ -11,7 +11,7 @@ export default function CartProvider({ children }) {
     function addItem(item, count) {
         if (isInCart(item.id)) {
             const indexItem = cart.findIndex(elem => elem.id === item.id)
-            cart[indexItem].count = cart[indexItem].count + count
+            cart[indexItem].count += count
         } else {
             setCart([...cart, {id: item.id, title: item.title, price: item.price, picUrl: item.picUrl, count: count}])
         }
@@ -32,7 +32,7 @@ export default function CartProvider({ children }) {
     }
 
     return (
-        <cartContext.Provider value={{cart, cartTotal, addItem, removeItem, clearCart}}>            
+        <cartContext.Provider value={{cart, cartTotal, addItem, removeItem, clearCart, isInCart}}>            
             {children}
         </cartContext.Provider>
     )

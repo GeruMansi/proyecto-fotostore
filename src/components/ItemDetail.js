@@ -6,13 +6,22 @@ import ItemCount from "./ItemCount";
 export default function ItemDetail({ item }) {
 
     const [enableGoToCart, setenableGoToCart] = useState(false)
+    const [stockError, setStockError] = useState(false)
 
-    const {addItem} = useContext(cartContext)
+    const {addItem, cart, isInCart} = useContext(cartContext)
 
     function onAdd(quantityToAdd) {
-        if (item.stock !== 0) {
-            setenableGoToCart(true)
-            addItem(item, quantityToAdd)
+        if (item.stock > 0) {         
+            const indexItem = cart.findIndex(elem => elem.id === item.id)
+            if (!isInCart(item.id)) {
+                addItem(item, quantityToAdd)
+                setenableGoToCart(true)
+            } else if (item.stock - cart[indexItem].count >= quantityToAdd) {
+                addItem(item, quantityToAdd)
+                setenableGoToCart(true)
+            } else {
+                setStockError(true)
+            }
         }
     }
 
@@ -42,7 +51,10 @@ export default function ItemDetail({ item }) {
                 </div>
                 {
                     (!enableGoToCart)?
-                        <ItemCount item={item} onAdd={onAdd} />
+                        <>
+                            <ItemCount item={item} onAdd={onAdd} />
+                            {stockError && <p className="error" style={{textAlign: 'center', fontWeight: '500'}}>La cantidad no puede superar el stock</p>}
+                        </>
                     :
                         <Link to={'/cart'} className="primaryBtn">Ir al carrito</Link>
                 }
